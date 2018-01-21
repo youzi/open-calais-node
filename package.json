@@ -1,0 +1,26 @@
+{
+  "name": "open-calais-node",
+  "version": "1.0.0",
+  "description": "Takes a string, url or file and runs it through Open Calais.",
+  "main": "index.js",
+  "dependencies": {
+    "got": "^8.0.3",
+    "is-plural": "^0.1.1",
+    "is-url": "^1.2.2",
+    "textract": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youzi/open-calais-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youzi/open-calais-node/issues"
+  },
+  "homepage": "https://github.com/youzi/open-calais-node#readme"
+}

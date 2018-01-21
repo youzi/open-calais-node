@@ -35,8 +35,21 @@ const parseResponse = response => {
 };
 
 const getString = new Promise((resolve, reject) => {
-  const cb = (err, res) => (err ? reject(err) : resolve(res));
-  isUrl(arg) ? textract.fromUrl(arg, cb) : textract.fromFileWithPath(arg, cb);
+  if (process.stdin.isTTY) {
+    const cb = (err, res) => (err ? reject(err) : resolve(res));
+    isUrl(arg) ? textract.fromUrl(arg, cb) : textract.fromFileWithPath(arg, cb);
+  } else {
+    const stdin = process.openStdin();
+    let data = '';
+
+    stdin.on('data', chunk => {
+      data += chunk;
+    });
+
+    stdin.on('end', () => {
+      resolve(data);
+    });
+  }
 });
 
 getString

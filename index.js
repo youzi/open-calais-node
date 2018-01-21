@@ -36,7 +36,7 @@ const parseResponse = response => {
 
 const getString = new Promise((resolve, reject) => {
   if (process.stdin.isTTY) {
-    const cb = (err, res) => (err ? reject(err) : resolve(res));
+    const cb = (err, res) => (err ? resolve(arg) : resolve(res));
     isUrl(arg) ? textract.fromUrl(arg, cb) : textract.fromFileWithPath(arg, cb);
   } else {
     const stdin = process.openStdin();
